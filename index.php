@@ -1,3 +1,3 @@
 <?php
-echo "hello world !ff";
+echo "welcome this is team 13 project";
 ?>
