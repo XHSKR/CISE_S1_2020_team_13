@@ -6,11 +6,12 @@
 <body>
 <h1>Log in Page</h1>
 	<form method="post" action="member_add.php">
-		<p>	<label for="fname">Enter first name: </label>
-			<input type="text" name="fname" id="fname" /></p>
-		<p>	<label for="lname">Enter last name: </label>
-			<input type="text" name="lname" id="lname" /></p>
-            <p>	<input type="submit" value="Add Item" /></p>
+		<p>	<label for="username">Username: </label>
+			<input type="text" name="username" id="username" /></p>
+		<p>	<label for="pwd">Password: </label>
+			<input type="password" name="pwd" id="pwd" /></p>
+		<p>	<input type="submit" value="Log in" /></p>
+		<p> <a href="signup.php">Don't have an account? </a></p>
 	</form>
 </body>
 </html>
