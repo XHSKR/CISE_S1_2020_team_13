@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" >
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Account Application Management</title>
 </head>
 
@@ -18,7 +19,6 @@ if($usertype != 'admin') //if not admin
     echo "<meta http-equiv='refresh' content='0;url=/'>";
 	exit;
 }
-
 
 require_once ("settings.php");
 // Checks if connection is successful

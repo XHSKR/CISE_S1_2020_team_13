@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" >
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign up Page</title>
 </head>
 
@@ -24,8 +25,6 @@
         <p>	<input type="submit" name="submit" value="Sign up" />
 		<input type="reset" value="Reset" name="reset" /></p>
 	</form>
-</body>
-</html>
 
 <?php
 if(isset($_POST['submit'])){ //if button is clicked

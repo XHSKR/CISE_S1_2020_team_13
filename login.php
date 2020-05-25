@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" >
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Log in Page</title>
 </head>
 
@@ -12,8 +13,6 @@
 			<input type="password" name="pwd" id="pwd" /></p>
 		<p>	<input type="submit" name="submit" value="Log in" /></p>
 	</form>
-</body>
-</html>
 
 <?php
 session_start();
