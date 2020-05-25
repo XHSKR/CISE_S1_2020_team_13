@@ -57,7 +57,7 @@ if ($result->num_rows > 0) //if user exists
 	if ($result->num_rows > 0) //if user and pw match
 	{
 		//check if the account is allowed
-		$query = "SELECT isallowed FROM SEER WHERE username LIKE '" . $username . "'";
+		$query = "SELECT isAllowed FROM SEER WHERE username LIKE '" . $username . "'";
 		$result = mysqli_query($conn, $query);
 		$row = $result->fetch_assoc();
 		if ($row["isallowed"] == "Yes")

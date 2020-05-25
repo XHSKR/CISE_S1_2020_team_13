@@ -75,7 +75,7 @@ require_once ("settings.php");
 		pwd varchar(40) NOT NULL,
 		email varchar(40) NOT NULL,
 		usertype varchar(40) NOT NULL,
-		isallowed varchar(40) NOT NULL,
+		isAllowed varchar(40) NOT NULL,
 		PRIMARY KEY  (userid)
 		)";
 		$result = mysqli_query($conn, $query);
@@ -96,7 +96,7 @@ if ($result->num_rows > 0)
 	}
 // Set up the SQL command to add the data into the table
 $query = "insert into seer"
-."(username, pwd, email, usertype, isallowed)"
+."(username, pwd, email, usertype, isAllowed)"
 . "values"
 ."('$username','$pwd','$email', '$usertype', 'No')";
 		// executes the query
