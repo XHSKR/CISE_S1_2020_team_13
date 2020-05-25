@@ -16,6 +16,11 @@
 </html>
 
 <?php
+session_start();
+if(isset($_SESSION['username']) || isset($_SESSION['usertype'])){
+	echo "<meta http-equiv='refresh' content='0;url=/'>";
+	exit;
+}
 if(isset($_POST['submit'])){ //if button is clicked
 // Get data from the form
 $username = $_POST["username"];
@@ -57,13 +62,17 @@ if ($result->num_rows > 0) //if user exists
 	if ($result->num_rows > 0) //if username and pwd match
 	{
 		//check if the account is allowed
-		$query = "SELECT isAllowed FROM SEER WHERE username LIKE '" . $username . "'";
+		$query = "SELECT * FROM SEER WHERE username LIKE '" . $username . "'";
 		$result = mysqli_query($conn, $query);
 		$row = $result->fetch_assoc();
 		$isAllowed = $row["isAllowed"];
 		if ($isAllowed == "Yes")
 		{
-			echo "Log-in Successful.";
+			$usertype = $row["usertype"];
+			session_start();
+			$_SESSION['username'] = $username;
+			$_SESSION['usertype'] = $usertype;
+			echo "<meta http-equiv='refresh' content='0;url=/'>";
 		}
 		else
 		echo "Your account application is still in process for review. Please try later.";
@@ -84,3 +93,5 @@ else
 }
 ?>
 <p><a href="signup.php">Don't have an account? </a></p>
+</body> 
+</html>

@@ -111,4 +111,6 @@ $query = "insert into seer"
 	}
 }
 ?>
-<br /><br /><p><a href="index.php">Return to Home Page </a></p>
+<p><a href="index.php">Return to Home Page </a></p>
+</body> 
+</html>
