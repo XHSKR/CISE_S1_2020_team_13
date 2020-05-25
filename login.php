@@ -73,8 +73,10 @@ if ($result->num_rows > 0) //if user exists
 			$_SESSION['usertype'] = $usertype;
 			echo "<meta http-equiv='refresh' content='0;url=/'>";
 		}
-		else
-		echo "Your account application is still in process for review. Please try later.";
+		else if ($isAllowed == "No")
+		echo "Your account application is still in process for review. Please try again later.";
+		else if ($isAllowed == "Rejected")
+		echo "Sorry, but your application has been rejected.";
 	}
 	else 
 	{
