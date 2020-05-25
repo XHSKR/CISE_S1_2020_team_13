@@ -56,6 +56,15 @@ if ($pwd != $pwd2)
 	";
 	return;
 }
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	echo "
+	<script>
+	alert('Invalid email format.');
+	history.back();
+	</script>
+	";
+	return;
+  }
 require_once ("settings.php");
 // Checks if connection is successful
 	if (!$conn) {

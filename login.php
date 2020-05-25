@@ -78,7 +78,7 @@ if ($result->num_rows > 0) //if user exists
 	}
 	else 
 	{
-		echo "Password incorrect.";
+		echo "Incorrect password.";
 	}
 	
 }
