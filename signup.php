@@ -80,7 +80,7 @@ require_once ("settings.php");
 		)";
 		$result = mysqli_query($conn, $query);
 		}
-		//check if statuscode is unique in database
+		//check if username is unique in database
 $query = "SELECT * FROM SEER WHERE username LIKE '" . $username . "'";
 $result = mysqli_query($conn, $query);
 if ($result->num_rows > 0)

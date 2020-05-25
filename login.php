@@ -42,11 +42,11 @@ require_once ("settings.php");
 		//check if table exists
 		if (!$result)
 		{ //if table does not exist
-			echo "<b>Table does not exist</b>";
+			echo "<b>Table does not exist.</b>";
 		}
 		else
 		{
-//check if id exists in database
+//check if username exists in database
 $query = "SELECT * FROM SEER WHERE username LIKE '" . $username . "'";
 $result = mysqli_query($conn, $query);
 if ($result->num_rows > 0) //if user exists
@@ -54,15 +54,16 @@ if ($result->num_rows > 0) //if user exists
 	$query = "SELECT * FROM SEER WHERE username = '".$username."' AND pwd = '".$pwd."'";
 	$result = mysqli_query($conn, $query);
 	
-	if ($result->num_rows > 0) //if user and pw match
+	if ($result->num_rows > 0) //if username and pwd match
 	{
 		//check if the account is allowed
 		$query = "SELECT isAllowed FROM SEER WHERE username LIKE '" . $username . "'";
 		$result = mysqli_query($conn, $query);
 		$row = $result->fetch_assoc();
-		if ($row["isallowed"] == "Yes")
+		$isAllowed = $row["isAllowed"];
+		if ($isAllowed == "Yes")
 		{
-			echo "Log-in Successful";
+			echo "Log-in Successful.";
 		}
 		else
 		echo "Your account application is still in process for review. Please try later.";
@@ -75,7 +76,7 @@ if ($result->num_rows > 0) //if user exists
 }
 else
 	{
-		echo "User detail does not exist";
+		echo "Username does not exist.";
 	}
 	}
 }
