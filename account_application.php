@@ -112,6 +112,7 @@ else
 }
 
 }
+echo "<p><a href='/'>Back to Main Page</a></p>";
 ?>
 </body> 
 </html>
