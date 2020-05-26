@@ -50,31 +50,34 @@ if ($result->num_rows > 0) {
 				 ."<th scope=\"col\">usertype</th>\n"
                  ."<th scope=\"col\"><b>Allow</b></th>\n"
                  ."<th scope=\"col\"><b>Reject</b></th>\n"
-				 ."</tr>\n";
+                 ."</tr>\n";
+           
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        $allow_button = '
+                $allow_button = '<form method="POST" style="margin: 0px;">
                 <input type="hidden" name="userid_accept" value="' . $row["userid"] . '">
                 <input type="submit" value="Allow">
-                
+                </form>
                 ';
-                $reject_button = '
+                $reject_button = '<form method="POST" style="margin: 0px;">
                 <input type="hidden" name="userid_reject" value="' . $row["userid"] . '">
                 <input type="submit" value="Reject">
-                
+                </form>
                 ';
-                echo '<form method="POST">';
+                
 			    echo "<tr>";
 				echo "<td>",$row["userid"],"</td>";
 				echo "<td>",$row["username"],"</td>";
 				echo "<td>",md5($row["pwd"]),"</td>";
 				echo "<td>",$row["email"],"</td>";
                 echo "<td>",$row["usertype"],"</td>";
-                echo "<td>",$allow_button,"</td>";
-                echo "<td>",$reject_button,"</td>";
-				echo "</tr>";
+                echo '<td>',$allow_button, "</td>";
+                echo '<td>',$reject_button,"</td>";
+                
+                echo "</tr>";
+                
         }
-                echo "</form>";
+        echo "</form>";
         if(isset($_POST['userid_accept'])){ //if allow button is clicked
             $userid = $_POST['userid_accept'];
             require_once ("settings.php");
@@ -106,7 +109,6 @@ if ($result->num_rows > 0) {
                         window.location.href = window.location.href
                         </script>
                         ";
-                    
                     } 
                     }
                 }
@@ -130,7 +132,6 @@ if ($result->num_rows > 0) {
                     }
                     else
                     {
-
                     $query = "UPDATE SEER SET isAllowed = 'Rejected' WHERE userid = " . $userid . ";";
                     $result = mysqli_query($conn, $query);
                     // checks if the execution was successful
