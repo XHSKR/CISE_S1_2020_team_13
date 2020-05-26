@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" >
+<!DOCTYPE html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign up Page</title>
@@ -27,57 +27,54 @@
 	</form>
 
 <?php
-if(isset($_POST['submit'])){ //if button is clicked
-// Get data from the form
-$username = $_POST["username"];
-$pwd = $_POST["pwd"];
-$pwd2 = $_POST["pwd2"];
-$email = $_POST["email"];
-$usertype = $_POST["usertype"];
+if (isset($_POST['submit'])) { //if button is clicked
+    // Get data from the form
+    $username = $_POST["username"];
+    $pwd = $_POST["pwd"];
+    $pwd2 = $_POST["pwd2"];
+    $email = $_POST["email"];
+    $usertype = $_POST["usertype"];
 
 //check if all required data is retrieved
-if (empty($username) || empty($pwd) || empty($pwd2) || empty($email) ||empty($usertype))
-{ 
-	echo "
+    if (empty($username) || empty($pwd) || empty($pwd2) || empty($email) || empty($usertype)) {
+        echo "
 	<script>
 	alert('Please fill in every required forms.');
 	history.back();
 	</script>
 	";
-	return;
-}
-if ($pwd != $pwd2)
-{
-	echo "
+        return;
+    }
+    if ($pwd != $pwd2) {
+        echo "
 	<script>
 	alert('Password is not matching.');
 	history.back();
 	</script>
 	";
-	return;
-}
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	echo "
+        return;
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "
 	<script>
 	alert('Invalid email format.');
 	history.back();
 	</script>
 	";
-	return;
-  }
-require_once ("settings.php");
+        return;
+    }
+    require_once "settings.php";
 // Checks if connection is successful
-	if (!$conn) {
-		// Displays an error message
-		echo "<b>Database connection failure</b>";
-	} else {
-		// Upon successful connection
-		$query = "SELECT * FROM SEER";
-		$result = mysqli_query($conn, $query);
-		//check if table exists
-		if (!$result)
-		{ //if table does not exist, create table
-		$query = "CREATE TABLE SEER (
+    if (!$conn) {
+        // Displays an error message
+        echo "<b>Database connection failure</b>";
+    } else {
+        // Upon successful connection
+        $query = "SELECT * FROM SEER";
+        $result = mysqli_query($conn, $query);
+        //check if table exists
+        if (!$result) { //if table does not exist, create table
+            $query = "CREATE TABLE SEER (
 		userid int(11) AUTO_INCREMENT,
 		username varchar(40) NOT NULL,
 		pwd varchar(40) NOT NULL,
@@ -86,39 +83,38 @@ require_once ("settings.php");
 		isAllowed varchar(40) NOT NULL,
 		PRIMARY KEY  (userid)
 		)";
-		$result = mysqli_query($conn, $query);
-		}
-		//check if username is unique in database
-$query = "SELECT * FROM SEER WHERE username LIKE '" . $username . "'";
-$result = mysqli_query($conn, $query);
-if ($result->num_rows > 0)
-	{
-	//notify user and go back to previous page
-	echo "
+            $result = mysqli_query($conn, $query);
+        }
+        //check if username is unique in database
+        $query = "SELECT * FROM SEER WHERE username LIKE '" . $username . "'";
+        $result = mysqli_query($conn, $query);
+        if ($result->num_rows > 0) {
+            //notify user and go back to previous page
+            echo "
 	<script>
 	alert('The username already exists.');
 	history.back();
 	</script>
 	";
-	return;
-	}
+            return;
+        }
 // Set up the SQL command to add the data into the table
-$query = "insert into seer"
-."(username, pwd, email, usertype, isAllowed)"
-. "values"
-."('$username','$pwd','$email', '$usertype', 'No')";
-		// executes the query
-		$result = mysqli_query($conn, $query);
-		// checks if the execution was successful
-		if(!$result) {
-			echo "<p>Something is wrong with ",	$query, "</p>";
-		} else {
-			// display an operation successful message
-			echo "The request has been sent !";
-		} 
-	}
+        $query = "insert into seer"
+            . "(username, pwd, email, usertype, isAllowed)"
+            . "values"
+            . "('$username','$pwd','$email', '$usertype', 'No')";
+        // executes the query
+        $result = mysqli_query($conn, $query);
+        // checks if the execution was successful
+        if (!$result) {
+            echo "<p>Something is wrong with ", $query, "</p>";
+        } else {
+            // display an operation successful message
+            echo "The request has been sent !";
+        }
+    }
 }
 ?>
 <p><a href="index.php">Return to Home Page </a></p>
-</body> 
+</body>
 </html>
