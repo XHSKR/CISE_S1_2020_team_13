@@ -18,6 +18,7 @@ echo "<!DOCTYPE html>";
 echo "<meta charset='utf-8' />";
 echo "<h1>Hello, $username ($usertype) !</p></h1>";
 ?>
+
 <form method="get">
 <p>	<label for="datefrom">Date Range from</label>
 			<input type="date" name="datefrom" value="<?php echo date('yy-m-d') ?>" />
@@ -42,9 +43,14 @@ echo "<h1>Hello, $username ($usertype) !</p></h1>";
 	<option value="author">Author</option> </select>
 
 <input type="text" name="text" placeholder="Enter here">
-	<input type="submit" value="Search" />
+	<input type="submit" name="submit" value="Search"/>
 	<input type="reset" value="Clear" name="reset" /></p>
 </form>
+<?php
+if (isset($_GET['submit'])) { //if button is clicked
+    echo "No search result.";
+}
+?>
 <p><a href='account_application.php'>Account Application Management</a></p>
 <p><a href='logout.php'>Logout</a></p>
 </body>

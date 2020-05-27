@@ -19,7 +19,7 @@
 		<select name="usertype">
 			<option value="student">Student</option>
 			<option value="researcher">Researcher</option>
-			<option value="affiliation ">Affiliation</option>
+			<option value="affiliation">Affiliation</option>
 			<option value="host">SERL Host</option>
 			<option value="analyst">SERL Analyst</option> </select></p>
         <p>	<input type="submit" name="submit" value="Sign up" />
@@ -30,8 +30,8 @@
 if (isset($_POST['submit'])) { //if button is clicked
     // Get data from the form
     $username = $_POST["username"];
-    $pwd = $_POST["pwd"];
-    $pwd2 = $_POST["pwd2"];
+    $pwd = md5($_POST["pwd"]);
+    $pwd2 = md5($_POST["pwd2"]);
     $email = $_POST["email"];
     $usertype = $_POST["usertype"];
 

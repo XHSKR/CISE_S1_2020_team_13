@@ -64,7 +64,7 @@ if (!$conn) {
             echo "<tr>";
             echo "<td>", $row["userid"], "</td>";
             echo "<td>", $row["username"], "</td>";
-            echo "<td>", md5($row["pwd"]), "</td>";
+            echo "<td>", $row["pwd"], "</td>";
             echo "<td>", $row["email"], "</td>";
             echo "<td>", $row["usertype"], "</td>";
             echo '<td>', $allow_button, "</td>";

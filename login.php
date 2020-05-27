@@ -23,7 +23,7 @@ if (isset($_SESSION['username']) || isset($_SESSION['usertype'])) {
 if (isset($_POST['submit'])) { //if button is clicked
     // Get data from the form
     $username = $_POST["username"];
-    $pwd = $_POST["pwd"];
+    $pwd = md5($_POST["pwd"]);
     if (empty($username) || empty($pwd)) {
         echo "
 	<script>
