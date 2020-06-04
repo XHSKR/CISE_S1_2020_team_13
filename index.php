@@ -16,25 +16,25 @@ echo "<h1>Hello, $username ($usertype) !</p></h1>";
 <form method="get">
 	<fieldset style="width:500px">
 		<legend>Search Articles</legend>
-		<p> <label for="datefrom">Date Range from</label>
-			<input type="date" name="datefrom" value="<?php echo date('yy-m-d') ?>" />
-			<label for="dateto"> to </label>
-			<input type="date" name="dateto" value="<?php echo date('yy-m-d') ?>" /></p>
-		<p> <label for="datefrom">User Rating from</label>
+		<p> <label for="datefrom">Date Range &nbsp;</label>
+		<input type="number" name="datefrom" min="1900" max="2099" value="2020" />
+			<label for="dateto">&nbsp; ~ &nbsp;</label>
+			<input type="number" name="dateto" min="1900" max="2099" value="2020" /></p>
+		<p> <label for="datefrom">User Rating &nbsp;</label>
 			<select name="userratingfrom" style="margin-right: 5px">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
+				<option value="1">★</option>
+				<option value="2">★★</option>
+				<option value="3">★★★</option>
+				<option value="4">★★★★</option>
+				<option value="5">★★★★★</option>
 			</select>
-			<label for="datefrom">to</label>
+			<label for="datefrom">&nbsp; ~ &nbsp;</label>
 			<select name="userratingto" style="margin-right: 5px">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
+				<option value="1">★</option>
+				<option value="2">★★</option>
+				<option value="3">★★★</option>
+				<option value="4">★★★★</option>
+				<option value="5">★★★★★</option>
 			</select></p>
 		<p><select name="searchby" style="margin-right: 5px">
 				<option value="article">Article</option>

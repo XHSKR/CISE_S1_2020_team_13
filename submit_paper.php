@@ -13,11 +13,11 @@ include 'login_check.php';
 
 <h3>Please fill in every forms to submit a paper.</h3></label>
 <p> <label>Author: </label></p>
-<p><input type="text" name="author" id="author" /></p>
+<p><input type="text" name="author" id="author" placeholder = "Aniche"/></p>
 <p> <label>Title: </label></p>
-<p><input type="text" name="title" id="title" size="30" /></p>
+<p><input type="text" name="title" id="title" size="52" placeholder = "Most common mistakes in test-driven development practice" /></p>
 <p> <label>Publish Year: </label></p>
-<p><input type="number" name="year" id="year" style="width: 5em" /></p>
+<p><input type="number" name="year" id="year" min="1900" max="2099" placeholder = "2010" style="width: 5em"/></p>
 <p><label>Description:</label></p>
 <p><textarea id="description" name="description" rows="4" cols="50"></textarea></p>
 <p> <input type="submit" name="submit" value="Submit" /></p>
