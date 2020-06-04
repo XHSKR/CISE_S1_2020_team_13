@@ -7,19 +7,15 @@
 <body>
 
 <?php
-session_start();
-if (!isset($_SESSION['username']) || !isset($_SESSION['usertype'])) {
-    echo "<meta http-equiv='refresh' content='0;url=login.php'>";
-    exit;
-}
+include 'login_check.php';
 $username = $_SESSION['username'];
 $usertype = $_SESSION['usertype'];
-echo "<!DOCTYPE html>";
-echo "<meta charset='utf-8' />";
 echo "<h1>Hello, $username ($usertype) !</p></h1>";
 ?>
 
 <form method="get">
+<fieldset>
+  <legend>Search Articles</legend>
 <p>	<label for="datefrom">Date Range from</label>
 			<input type="date" name="datefrom" value="<?php echo date('yy-m-d') ?>" />
 	<label for="dateto"> to </label>
@@ -45,12 +41,23 @@ echo "<h1>Hello, $username ($usertype) !</p></h1>";
 <input type="text" name="text" placeholder="Enter here">
 	<input type="submit" name="submit" value="Search"/>
 	<input type="reset" value="Clear" name="reset" /></p>
+
 </form>
+
 <?php
 if (isset($_GET['submit'])) { //if button is clicked
-    echo "No search result.";
+    // Get data from the form
+    $text = $_GET["text"];
+    if (empty($text)) {
+        echo "Please enter text.";
+    } else {
+        echo "No search result.";
+    }
+
 }
 ?>
+</fieldset>
+<p><a href='submit_paper.php'>Submit a paper</a></p>
 <p><a href='account_application.php'>Account Application Management</a></p>
 <p><a href='logout.php'>Logout</a></p>
 </body>

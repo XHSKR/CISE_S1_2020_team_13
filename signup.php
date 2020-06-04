@@ -20,7 +20,8 @@
 			<option value="student">Student</option>
 			<option value="researcher">Researcher</option>
 			<option value="affiliation">Affiliation</option>
-			<option value="host">SERL Host</option>
+            <option value="admin">SERL Admin</option>
+			<option value="moderator">SERL Moderator</option>
 			<option value="analyst">SERL Analyst</option> </select></p>
         <p>	<input type="submit" name="submit" value="Sign up" />
 		<input type="reset" value="Clear" name="reset" /></p>
