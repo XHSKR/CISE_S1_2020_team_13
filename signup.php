@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign up Page</title>
+<title>SEER Sign-up</title>
 </head>
 
 <body>
-<h1>Sign up Page</h1>
+<h1>SEER Sign-up</h1>
 	<form method="post">
 		<p>	<label for="username">Username: </label>
 			<input type="text" name="username" id="username" /></p>
