@@ -6,6 +6,23 @@
 
 <body>
 <h1>Paper Analysis for SERL Analyst</h1>
+
+<?php
+include 'login_check.php';
+$username = $_SESSION['username'];
+$usertype = $_SESSION['usertype'];
+if ($usertype != 'analyst' && $usertype != 'admin') //if not analyst nor admin
+{
+    echo "
+        <script>
+        alert('You are not authorised to view this webpage.');
+        history.back();
+        </script>
+        ";
+    exit;
+}
+?>
+
 No papers to show.
 
 

@@ -14,7 +14,7 @@ echo "<h1>Hello, $username ($usertype) !</p></h1>";
 ?>
 
 <form method="get">
-	<fieldset>
+	<fieldset style="width:500px">
 		<legend>Search Articles</legend>
 		<p> <label for="datefrom">Date Range from</label>
 			<input type="date" name="datefrom" value="<?php echo date('yy-m-d') ?>" />
@@ -54,7 +54,7 @@ if (isset($_GET['submit'])) { //if button is clicked
     if (empty($text)) {
         echo "Please enter text.";
     } else {
-        echo "No search result.";
+        echo "No results found matching your criteria.";
     }
 
 }
@@ -63,7 +63,8 @@ if (isset($_GET['submit'])) { //if button is clicked
 <p><a href='submit_paper.php'>Submit a paper</a></p>
 <p><a href='quality_check.php'>Paper Quality Check for SERL Moderator</a></p>
 <p><a href='paper_analysis.php'>Paper Analysis for SERL Analyst</a></p>
-<p><a href='account_application.php'>Account Application Management</a></p>
+<p><a href='application_management.php'>Account Application Management</a></p>
+<p><a href='account_management.php'>Account Management</a></p>
 <p><a href='logout.php'>Logout</a></p>
 </body>
 </html>

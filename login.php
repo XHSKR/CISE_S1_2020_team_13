@@ -35,36 +35,36 @@ if (isset($_POST['submit'])) { //if button is clicked
         echo "<b>Database connection failure</b>";
     } else {
         // Upon successful connection
-        $query = "SELECT * FROM SEER";
+        $query = "SELECT * FROM accounts";
         $result = mysqli_query($conn, $query);
         //check if table exists
         if (!$result) { //if table does not exist
             echo "<b>Table does not exist.</b>";
         } else {
-//check if username exists in database
-            $query = "SELECT * FROM SEER WHERE username LIKE '" . $username . "'";
+            //check if username exists in database
+            $query = "SELECT * FROM accounts WHERE username LIKE '" . $username . "'";
             $result = mysqli_query($conn, $query);
             if ($result->num_rows > 0) //if user exists
             {
-                $query = "SELECT * FROM SEER WHERE username = '" . $username . "' AND pwd = '" . $pwd . "'";
+                $query = "SELECT * FROM accounts WHERE username = '" . $username . "' AND pwd = '" . $pwd . "'";
                 $result = mysqli_query($conn, $query);
 
                 if ($result->num_rows > 0) //if username and pwd match
                 {
                     //check if the account is allowed
-                    $query = "SELECT * FROM SEER WHERE username LIKE '" . $username . "'";
+                    $query = "SELECT * FROM accounts WHERE username LIKE '" . $username . "'";
                     $result = mysqli_query($conn, $query);
                     $row = $result->fetch_assoc();
-                    $isAllowed = $row["isAllowed"];
-                    if ($isAllowed == "Yes") {
+                    $status = $row["status"];
+                    if ($status == "approved") {
                         $usertype = $row["usertype"];
                         session_start();
                         $_SESSION['username'] = $username;
                         $_SESSION['usertype'] = $usertype;
                         echo "<meta http-equiv='refresh' content='0;url=/'>";
-                    } else if ($isAllowed == "No") {
+                    } else if ($status == "pending") {
                         echo "Your account application is still in process for review. Please try again later.";
-                    } else if ($isAllowed == "Rejected") {
+                    } else if ($status == "rejected") {
                         echo "Sorry, but your application has been rejected.";
                     }
 
@@ -89,6 +89,6 @@ if (isset($_POST['submit'])) { //if button is clicked
     }
 }
 ?>
-<p><a href="signup.php">Don't have an account? </a></p>
+<p><a href="signup.php">Don't have an account?</a></p>
 </body>
 </html>
