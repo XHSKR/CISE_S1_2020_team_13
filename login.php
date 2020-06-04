@@ -5,32 +5,27 @@
 </head>
 
 <body>
-<h1>SEER Log-in</h1>
+	<h1>SEER Log-in</h1>
 	<form method="post">
-		<p>	<label for="username">Username: </label>
+		<p> <label for="username">Username: </label>
 			<input type="text" name="username" id="username" /></p>
-		<p>	<label for="pwd">Password: </label>
+		<p> <label for="pwd">Password: </label>
 			<input type="password" name="pwd" id="pwd" /></p>
-		<p>	<input type="submit" name="submit" value="Log in" /></p>
+		<p> <input type="submit" name="submit" value="Log in" /></p>
 	</form>
 
 <?php
-session_start();
-if (isset($_SESSION['username']) || isset($_SESSION['usertype'])) {
-    echo "<meta http-equiv='refresh' content='0;url=/'>";
-    exit;
-}
 if (isset($_POST['submit'])) { //if button is clicked
     // Get data from the form
     $username = $_POST["username"];
     $pwd = md5($_POST["pwd"]);
     if (empty($username) || empty($pwd)) {
         echo "
-	<script>
-	alert('Please enter username and password.');
-	history.back();
-	</script>
-	";
+            <script>
+            alert('Please enter username and password.');
+            history.back();
+            </script>
+            ";
         return;
     }
     require_once "settings.php";
@@ -74,15 +69,24 @@ if (isset($_POST['submit'])) { //if button is clicked
                     }
 
                 } else {
-                    echo "Incorrect password.";
+                    echo "
+                        <script>
+                        alert('Incorrect password.');
+                        history.back();
+                        </script>
+                        ";
                 }
 
             } else {
-                echo "Username does not exist.";
+                echo "
+                    <script>
+                    alert('Username does not exist.');
+                    history.back();
+                    </script>
+                    ";
             }
         }
     }
-
 }
 ?>
 <p><a href="signup.php">Don't have an account? </a></p>

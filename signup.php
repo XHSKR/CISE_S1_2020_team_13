@@ -6,26 +6,27 @@
 
 <body>
 <h1>SEER Sign-up</h1>
-	<form method="post">
-		<p>	<label for="username">Username: </label>
-			<input type="text" name="username" id="username" /></p>
-		<p>	<label for="pwd">Password: </label>
-			<input type="password" name="pwd" id="pwd" /></p>
-        <p> <label for="pwd2">Password again: </label>
-			<input type="password" name="pwd2" id="pwd2" /></p>
-		<p>	<label for="email">Enter email: </label>
-			<input type="text" name="email" id="email" /></p>
-		<p>	<label for="usertype">User Type: </label>
+<form method="post">
+	<p> <label for="username">Username: </label>
+		<input type="text" name="username" id="username" /></p>
+	<p> <label for="pwd">Password: </label>
+		<input type="password" name="pwd" id="pwd" /></p>
+	<p> <label for="pwd2">Password again: </label>
+		<input type="password" name="pwd2" id="pwd2" /></p>
+	<p> <label for="email">Enter email: </label>
+		<input type="text" name="email" id="email" /></p>
+	<p> <label for="usertype">User Type: </label>
 		<select name="usertype">
 			<option value="student">Student</option>
 			<option value="researcher">Researcher</option>
 			<option value="affiliation">Affiliation</option>
-            <option value="admin">SERL Admin</option>
+			<option value="admin">SERL Admin</option>
 			<option value="moderator">SERL Moderator</option>
-			<option value="analyst">SERL Analyst</option> </select></p>
-        <p>	<input type="submit" name="submit" value="Sign up" />
+			<option value="analyst">SERL Analyst</option>
+		</select></p>
+	<p> <input type="submit" name="submit" value="Sign up" />
 		<input type="reset" value="Clear" name="reset" /></p>
-	</form>
+</form>
 
 <?php
 if (isset($_POST['submit'])) { //if button is clicked
@@ -116,6 +117,6 @@ if (isset($_POST['submit'])) { //if button is clicked
     }
 }
 ?>
-<p><a href="index.php">Return to Home Page </a></p>
+<p><a href="index.php">Return to Home Page</a></p>
 </body>
 </html>
