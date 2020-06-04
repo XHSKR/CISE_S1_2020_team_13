@@ -62,7 +62,7 @@ if (isset($_GET['submit'])) { //if button is clicked
 </fieldset>
 <p><a href='submit_paper.php'>Submit a paper</a></p>
 <p><a href='quality_check.php'>Paper Quality Check for SERL Moderator</a></p>
-<p><a href='paper_analysis.php'>Paper Analysis SERL Analyst</a></p>
+<p><a href='paper_analysis.php'>Paper Analysis for SERL Analyst</a></p>
 <p><a href='account_application.php'>Account Application Management</a></p>
 <p><a href='logout.php'>Logout</a></p>
 </body>

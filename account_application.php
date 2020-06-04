@@ -13,7 +13,12 @@ $username = $_SESSION['username'];
 $usertype = $_SESSION['usertype'];
 if ($usertype != 'admin') //if not admin
 {
-    echo "<meta http-equiv='refresh' content='0;url=/'>";
+    echo "
+        <script>
+        alert('You are not authorised to view this webpage.');
+        history.back();
+        </script>
+        ";
     exit;
 }
 
@@ -134,7 +139,7 @@ if (!$conn) {
             }
         }
     } else {
-        echo "No application to show.";
+        echo "No applications to show.";
     }
 
 }
